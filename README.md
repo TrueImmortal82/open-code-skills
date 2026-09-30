@@ -33,6 +33,7 @@ skill discovery picks them up. Nothing is copied into global directories.
 | `code-discipline` | Code standards and hard size budgets — file 300/500 lines, function 30/50, zero new dependencies without asking |
 | `assistant-runtime-architecture` | Long-lived assistant runtime: supervisor/child topology, durable delivery, output contracts |
 | `opencode-tool-output` | Parsing `opencode debug` JSON instead of regexing it, plus the Windows GUI-binary and `.cmd` shim spawn traps |
+| `test-first-fix` | Making a failure observable before changing code, so a fix is a claim a machine can reject |
 
 Each skill is a plain directory with a `SKILL.md` and YAML frontmatter, per the
 [Agent Skills specification](https://agentskills.io/specification). Copy any of
