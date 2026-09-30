@@ -67,19 +67,5 @@ delete it. See `references/turn-pipeline.md`.
   positives.
 - `references/diagnostics.md` — corpus auditing, idempotency checks,
   regression-test discipline.
-
-## Reference implementation map (LifeCompanion)
-
-Only relevant when that repository is present. Paths are from the 2026-08
-revision; line numbers drift.
-
-- `app/windows_supervisor.py` — Qt supervisor, `QProcess`, stdin pipe.
-- `app/runtime.py` — services bootstrap, supervisor command loop,
-  `request_shutdown`, durable inbound handling.
-- `app/agent_loop.py` — `start_run`, soft-repair dispatch.
-- `app/output_contracts.py` — `OutputContractPipeline.apply`.
-- `app/turn_transaction.py` — `prepare_delivery`, `complete_delivery`,
-  `_project_assistant_history`.
-- `app/gender_contract.py` — morphological gender enforcement.
-- `app/voice.py` — TTS worker subprocess.
-- `tests/test_gender_contract.py` — strict-mode and repair-guard tests.
+- `references/reference-implementation.md` — a worked example codebase mapping
+  each pattern above to real files, for when you want a concrete reference.
