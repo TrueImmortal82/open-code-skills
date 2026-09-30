@@ -1,5 +1,5 @@
 {
-  "name": "opencode-skillkit",
+  "name": "open-code-skills",
   "version": "0.1.0",
   "description": "Installable OpenCode plugin that ships a set of battle-tested agent skills: PowerShell execution rules, config authoring, skill authoring, and a self-improvement loop.",
   "type": "module",

@@ -24,7 +24,7 @@ function registerSkills(config) {
 // Single default export on purpose: the legacy loader treats every named
 // export as a plugin and throws on anything that is not a function.
 export default {
-  id: "skillkit",
+  id: "open-code-skills",
   server: async () => ({
     config: async (config) => {
       try {
