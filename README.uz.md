@@ -34,6 +34,7 @@ global papkalarga koʻchirilmaydi.
 | `self-improvement` | Biror tuzatishni unutiladigan niyat emas, doimiy artefaktga aylantirish |
 | `code-discipline` | Kod standartlari va qatʼiy hajm budjeti: fayl 300/500 qator, funksiya 30/50, soʻramasdan yangi bogʻliqlik yoʻq |
 | `assistant-runtime-architecture` | Uzoq muddatli assistent runtime: supervisor va bola jarayon, barqaror yetkazib berish, chiqish kontraktlari |
+| `opencode-tool-output` | `opencode debug` JSONʼini regex oʻrniga tahlil qilish, va Windowsʼdagi ishga tushirish tuzoqlari: GUI binary va `opencode.cmd` shim |
 
 Har bir koʻnikma — oddiy papka: un ichida `SKILL.md` va YAML frontmatter bor,
 [Agent Skills spetsifikatsiyasi](https://agentskills.io/specification) boʻyicha.
