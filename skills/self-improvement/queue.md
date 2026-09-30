@@ -48,3 +48,34 @@ the home directory and only accept directories that look like a project
 and note in the local skill which parts cannot run in this environment, so the
 agent does not confidently emit a command that will fail.
 **Status:** promoted -> skill-authoring/SKILL.md "Related" section (2026-09-30)
+
+### 2026-09-30 — Files and dependency graphs have hard budgets
+**Triggered by:** user request to write a skill covering code standards and a
+ban on bloating files and libraries
+**Rule:** file 300 target / 500 hard, function 30 / 50, nesting 3, new
+dependency 0 without asking. Crossing the hard limit means more than one
+responsibility — that is the real signal, the number is only the alarm.
+**Status:** promoted -> code-discipline/SKILL.md (2026-09-30)
+
+### 2026-09-30 — Duplicated prose is bloat, even when the duplication is requested
+**Triggered by:** my own README in this repo, which carried the same three
+paragraphs of install instructions three times for RU/EN/UZ, ~190 lines to say
+what ~70 lines say once
+**Rule:** one canonical body, then per-language files that link to it. Review
+cost and drift both scale with the number of copies, and a copy that is edited
+without its siblings silently rots.
+**Status:** promoted -> code-discipline/SKILL.md, "The prohibition" (2026-09-30)
+
+
+### 2026-09-30 — Temp-profile browser runs still write REAL runtime state
+**Triggered by:** BionicFirefoxEngine persistence probe on a `tempfile.mkdtemp()`
+profile overwrote `Data/Runtime/aris_firefox_session.json` (pages -> []) and
+rewrote `Data/Runtime/social_sessions_cookies.json`, leaking a probe cookie into
+Vlad's real aggregate jar.
+**Rule:** the profile dir is per-instance, but `SESSION_STATE_PATH` and the
+`save_cookies_backup` target are MODULE-LEVEL CONSTANTS pinned to Data/Runtime.
+Passing a temp `profile_dir` does NOT sandbox the writes. Before any live-browser
+probe: (1) grep the engine for module-level path constants, (2) monkeypatch them
+to the temp dir, (3) verify afterwards that real runtime files were untouched, or
+(4) copy the jars and diff. "Throwaway profile" is not a sandbox.
+**Status:** queued

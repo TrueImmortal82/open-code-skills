@@ -156,7 +156,10 @@ Non-callback, object-shaped entries: `tool: { my_tool: {...} }`, `auth: {...}`,
 node scripts/validate-config.mjs <path-to-opencode.jsonc>
 ```
 
-The bundled script (`scripts/validate-config.mjs`, run with node, no deps):
+The bundled script (`scripts/validate-config.mjs`, run with node, no deps) is
+the entry point; the rules live in `scripts/lib/` split by concern — `jsonc`
+(text transform), `schema` (network), `scan` (filesystem), `checks` (rules),
+`report` (findings). It:
 
 1. strips JSONC comments and trailing commas,
 2. parses JSON,
