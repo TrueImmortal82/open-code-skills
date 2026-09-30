@@ -1,0 +1,30 @@
+{
+  "name": "opencode-skillkit",
+  "version": "0.1.0",
+  "description": "Installable OpenCode plugin that ships a set of battle-tested agent skills: PowerShell execution rules, config authoring, skill authoring, and a self-improvement loop.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    "./server": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "validate": "node skills/skill-authoring/scripts/validate-skill.mjs"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "agent-skills",
+    "skills",
+    "agentskills"
+  ],
+  "license": "MIT",
+  "engines": {
+    "opencode": ">=1.18.0"
+  }
+}
