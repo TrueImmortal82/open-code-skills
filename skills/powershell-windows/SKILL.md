@@ -163,6 +163,21 @@ node -v; npm -v; python --version
   ```
 - PowerShell 7 features (`&&`, `??`, ternary) are unavailable in 5.1. Either
   invoke `pwsh -NoProfile -Command "..."` or write 5.1-compatible syntax.
+- **Log timestamps are usually UTC; `Get-Date` is local.** Anything RFC3339 with
+  a trailing `Z` is UTC, and this machine is UTC+5. Comparing them directly is a
+  5-hour skew, so a filter for "recent" events silently accepts or rejects the
+  wrong rows — it reports clean while ignoring what just happened, or reports
+  fresh failures that are hours old. Convert both sides:
+  ```powershell
+  (Get-Date).ToUniversalTime()
+  ```
+  or filter on a file timestamp (`(Get-Item $log).LastWriteTime`) instead.
+- **Grepping a log for a term you just typed matches your own search.** The
+  agent's commands are recorded in the same log it is reading, so a substring
+  search for `"Out of memory"` also matches the `Select-String` that searched
+  for it, and every repetition adds another. Count only lines carrying the
+  record shape you care about (e.g. `diffStderr=`), and treat a hit count that
+  grows while you are searching as self-contamination, not as new events.
 
 If a workflow needs machine-specific facts, keep them in a machine-local file
 that is excluded from version control, not baked into a shared skill.

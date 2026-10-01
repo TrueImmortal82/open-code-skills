@@ -34,6 +34,13 @@ skill discovery picks them up. Nothing is copied into global directories.
 | `assistant-runtime-architecture` | Long-lived assistant runtime: supervisor/child topology, durable delivery, output contracts |
 | `opencode-tool-output` | Parsing `opencode debug` JSON instead of regexing it, plus the Windows GUI-binary and `.cmd` shim spawn traps |
 | `test-first-fix` | Making a failure observable before changing code, so a fix is a claim a machine can reject |
+| `git-safety` | Reading a git tree before running a destructive command, and recovering work that was already lost |
+| `github-repo-ops` | Driving `gh` with the scopes you actually have, and recovering from 403 "Resource not accessible" |
+| `release-checklist` | The release gates that get skipped under time pressure, failing on all of them at once |
+| `troubleshooting-tree` | Halving the search space on an unknown cause instead of guessing fixes |
+| `long-task-continuity` | A durable checkpoint so a long task survives a context reset or a crash |
+| `api-doc-recall` | Verifying an API against the installed source instead of against remembered documentation |
+| `research-synthesis` | Turning several sources into one answer that says what is confirmed, inferred, and unknown |
 
 Each skill is a plain directory with a `SKILL.md` and YAML frontmatter, per the
 [Agent Skills specification](https://agentskills.io/specification). Copy any of
