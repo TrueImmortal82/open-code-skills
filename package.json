@@ -1,6 +1,6 @@
 {
   "name": "open-code-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Installable OpenCode plugin shipping 15 agent skills: Windows PowerShell rules, config and skill authoring, git and GitHub safety, pre-publish release gates, troubleshooting bisection, durable task checkpoints, and research synthesis.",
   "type": "module",
   "main": "index.js",
