@@ -43,6 +43,7 @@ global papkalarga koʻchirilmaydi.
 | `long-task-continuity` | Uzoq vazifa kontekstni tozalash yoki jarayon toʻxtashidan oʻtib ketadigan barqaror nazorat nuqtasi |
 | `api-doc-recall` | APIʼni eslab qolgan hujjat emas, oʻrnatilgan manba bilan tekshirish |
 | `research-synthesis` | Bir necha manbani bitta javobga birlashtirib, nimaning tasdiqlangan, nimaning taxmin va nimaning nomaʼlum ekanini aniq koʻrsatish |
+| `task-closure` | Vazifa tugaganini aniqlash, cheksiz takomillashtirishga kirmasdan: toʻxtash shartlari, tayyorlik testi va keyingi vazifaga qoldiriladigan narsalar roʻyxati |
 
 Har bir koʻnikma — oddiy papka: un ichida `SKILL.md` va YAML frontmatter bor,
 [Agent Skills spetsifikatsiyasi](https://agentskills.io/specification) boʻyicha.
