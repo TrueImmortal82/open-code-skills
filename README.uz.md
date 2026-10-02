@@ -36,6 +36,13 @@ global papkalarga koʻchirilmaydi.
 | `assistant-runtime-architecture` | Uzoq muddatli assistent runtime: supervisor va bola jarayon, barqaror yetkazib berish, chiqish kontraktlari |
 | `opencode-tool-output` | `opencode debug` JSONʼini regex oʻrniga tahlil qilish, va Windowsʼdagi ishga tushirish tuzoqlari: GUI binary va `opencode.cmd` shim |
 | `test-first-fix` | Kodni oʻzgartirishdan oldin muammoni koʻrinadigan qilish, yaʼni tuzatish — mashina rad eta oladigan bayonot boʻlsin |
+| `git-safety` | Buzuvchi buyruqdan oldin git daraxtini tekshirish va allaqachon yoʻqotilgan ishni tiklash |
+| `github-repo-ops` | `gh` ni haqiqiy mavjud scopeʼlar bilan boshqarish va 403 «Resource not accessible» dan tiklanish |
+| `release-checklist` | Muddat bosilganda tashlab ketiladigan chiqish tekshiruvlari — barchasi birdan yiqiladi |
+| `troubleshooting-tree` | Tuzatishni taxmin qilish oʻrniga nomaʼlum sabab izohasini yarimga boʻlish |
+| `long-task-continuity` | Uzoq vazifa kontekstni tozalash yoki jarayon toʻxtashidan oʻtib ketadigan barqaror nazorat nuqtasi |
+| `api-doc-recall` | APIʼni eslab qolgan hujjat emas, oʻrnatilgan manba bilan tekshirish |
+| `research-synthesis` | Bir necha manbani bitta javobga birlashtirib, nimaning tasdiqlangan, nimaning taxmin va nimaning nomaʼlum ekanini aniq koʻrsatish |
 
 Har bir koʻnikma — oddiy papka: un ichida `SKILL.md` va YAML frontmatter bor,
 [Agent Skills spetsifikatsiyasi](https://agentskills.io/specification) boʻyicha.

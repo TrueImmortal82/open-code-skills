@@ -4,6 +4,33 @@ All notable changes to this project are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.0.1] — 2026-10-02
+
+Release hygiene. The v1.0.0 tag was published before the repository metadata
+caught up, so this release carries the documentation and the metadata fix.
+
+### Added
+
+- `CHANGELOG.md` and `CONTRIBUTING.md`.
+- Bug report and new-skill issue templates, both asking for the evidence a fix
+  needs — the exact command and its output, and the trigger not yet claimed.
+- README badges for release, licence, minimum opencode version, and skill count.
+
+### Fixed
+
+- `README.ru.md` and `README.uz.md` were missing all seven skills added in
+  1.0.0. The 1.0.0 notes claimed all three READMEs had been updated; only the
+  English one had. All three now list all 15 skills.
+- `package.json` was at 0.1.0 while tag v1.0.0 was already published, and
+  `npm run validate` invoked `validate-skill.mjs` without the folder argument it
+  requires, so it exited 2 on every run. `validate` now runs the pre-publish
+  gates; `check-size` was added.
+- The marker gate matched its own documentation, because `release-checklist`
+  names the markers it searches for, so it failed on a repository whose only
+  unfinished work was the sentence describing the gate. It now skips fenced
+  blocks and inline code, requires the trailing colon, and reports file and
+  line. A tracked `TODO:` is still caught; an untracked one is not.
+
 ## [1.0.0] — 2026-10-01
 
 First tagged release. 15 skills, each with a description tuned to fire on a
@@ -71,4 +98,5 @@ tested with a case that makes it fail:
   theory; log timestamps are UTC while `Get-Date` is local; and a grep for your
   own search terms matches your searches.
 
+[1.0.1]: https://github.com/TrueImmortal82/open-code-skills/releases/tag/v1.0.1
 [1.0.0]: https://github.com/TrueImmortal82/open-code-skills/releases/tag/v1.0.0
