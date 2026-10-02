@@ -1,0 +1,61 @@
+name: New skill
+about: Propose a skill, or a rule to add to an existing one
+title: "[skill] "
+labels: enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this, check that no existing skill already claims your
+        trigger. If one does, the better change is to extend that skill:
+        two skills on the same ground split the trigger, and both fire less
+        reliably.
+
+        List what is already in `skills/`:
+
+        ```
+        gh api repos/TrueImmortal82/open-code-skills/contents/skills --jq '.[].name'
+        ```
+
+  - type: input
+    id: name
+    attributes:
+      label: Skill name
+      placeholder: troubleshooting-tree
+    validations:
+      required: true
+
+  - type: textarea
+    id: trigger
+    attributes:
+      label: When should it fire
+      description: Concrete situations, not a category name
+      placeholder: |
+        Use when something is broken and the cause is not yet known; when
+        several hypotheses are competing; when the same error appears in
+        several places.
+    validations:
+      required: true
+
+  - type: textarea
+    id: anti
+    attributes:
+      label: When should it NOT fire
+      description: The adjacent case that belongs to a different skill
+      placeholder: Not for a bug whose cause is already known.
+    validations:
+      required: true
+
+  - type: textarea
+    id: recurrence
+    attributes:
+      label: How often did you hit this
+      description: Once, or three times? One-offs do not become skills.
+    validations:
+      required: true
+
+  - type: textarea
+    id: script
+    attributes:
+      label: Could this be a script instead of prose
+      description: If the rule can be checked exactly, say what the script would check and how it would fail.

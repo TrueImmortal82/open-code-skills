@@ -1,0 +1,57 @@
+name: Bug report
+about: A skill fires when it should not, does not fire when it should, or gives the wrong answer
+title: "[skill] "
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. A wrong answer from a helper script is the most useful report —
+        it usually means a rule that was never checked.
+
+  - type: input
+    id: skill
+    attributes:
+      label: Which skill
+      description: Name from `skills/`, e.g. git-safety
+      placeholder: git-safety
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong
+      options:
+        - Does not fire when it should
+        - Fires when it should not
+        - Script gives a wrong answer
+        - Script exit code does not match its documentation
+        - Description is too long to be useful
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: What the skill or script should have done
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Include the exact command and its full output if a script was involved
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS and opencode version
+      placeholder: Windows 11, opencode 1.18.31
+    validations:
+      required: true

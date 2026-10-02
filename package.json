@@ -1,7 +1,7 @@
 {
   "name": "open-code-skills",
-  "version": "0.1.0",
-  "description": "Installable OpenCode plugin that ships a set of battle-tested agent skills: PowerShell execution rules, config authoring, skill authoring, and a self-improvement loop.",
+  "version": "1.0.0",
+  "description": "Installable OpenCode plugin shipping 15 agent skills: Windows PowerShell rules, config and skill authoring, git and GitHub safety, pre-publish release gates, troubleshooting bisection, durable task checkpoints, and research synthesis.",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -11,17 +11,31 @@
     "index.js",
     "skills",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
   ],
   "scripts": {
-    "validate": "node skills/skill-authoring/scripts/validate-skill.mjs"
+    "validate": "node skills/release-checklist/scripts/pre-publish.mjs .",
+    "check-size": "node skills/code-discipline/scripts/check-size.mjs skills",
+    "prepublish": "node skills/release-checklist/scripts/pre-publish.mjs ."
   },
   "keywords": [
     "opencode",
     "opencode-plugin",
     "agent-skills",
     "skills",
-    "agentskills"
+    "agentskills",
+    "powershell",
+    "windows",
+    "git",
+    "github",
+    "developer-tools",
+    "automation",
+    "testing",
+    "code-review",
+    "llm",
+    "ai"
   ],
   "license": "MIT",
   "engines": {

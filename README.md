@@ -1,5 +1,10 @@
 # open-code-skills
 
+[![release](https://img.shields.io/github/release/TrueImmortal82/open-code-skills?display_name=tag)](https://github.com/TrueImmortal82/open-code-skills/releases/latest)
+[![license](https://img.shields.io/github/license/TrueImmortal82/open-code-skills)](LICENSE)
+[![opencode](https://img.shields.io/badge/requires-opencode-%3E%3D1.18.0-ff8800)](https://opencode.ai)
+[![skills](https://img.shields.io/badge/skills-15-blue)](skills/)
+
 [English](README.md) · [Русский](README.ru.md) · [Oʻzbekcha](README.uz.md)
 
 > **This file is the canonical version.** Translations may lag behind it; when

@@ -21,6 +21,10 @@ const dirArg = argv.find((a, i) => !a.startsWith("--") && !(i > 0 && argv[i - 1]
 const dir = resolve(dirArg ?? process.cwd())
 const skip = new Set((flag("skip") ?? "").split(",").map((s) => s.trim()).filter(Boolean))
 
+// A marker is work left undone. The trailing colon keeps prose from matching:
+// a sentence that describes this gate is not a task in the code.
+const MARKER = /\b(TODO|FIXME|XXX|HACK)\b\s*:(?!:)/
+
 function die(message, code) {
   console.error(`pre-publish: ${message}`)
   process.exit(code)
@@ -130,6 +134,10 @@ const gates = [
     check: () => {
       // Tracked files only, same as the secret gate. A TODO in someone's editor
       // buffer or an unrelated scratch file is not a blocker for this release.
+      //
+      // Fenced code, inline code, and lines that document the marker are skipped.
+      // A skill that explains what a TODO is will always trip a naive scan of
+      // its own text, which trains people to ignore this gate entirely.
       const res = run("git", ["ls-files"])
       const files = res.code === 0 && !res.error
         ? res.out.split(/\r?\n/).filter(Boolean)
@@ -147,7 +155,13 @@ const gates = [
         } catch {
           continue
         }
-        if (/\b(TODO|FIXME|XXX|HACK)\b:/.test(text)) hits.push(file)
+        let inFence = false
+        for (const raw of text.split(/\r?\n/)) {
+          if (/^\s*(```|~~~)/.test(raw)) { inFence = !inFence; continue }
+          if (inFence) continue
+          const line = raw.replace(/`[^`]*`/g, "")
+          if (MARKER.test(line)) { hits.push(`${file}: ${line.trim().slice(0, 60)}`); break }
+        }
       }
       return hits.length
         ? { ok: false, why: `${hits.length} file(s) with TODO/FIXME markers: ${hits.slice(0, 3).join(", ")}` }
