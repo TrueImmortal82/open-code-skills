@@ -4,6 +4,31 @@ All notable changes to this project are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.1.0] — 2026-10-02
+
+A new skill, and the release gates it needed to ship cleanly.
+
+### Added
+
+- `task-closure` — deciding that a task is finished instead of improving it
+  forever. Supplies stop conditions agreed before the work starts, a
+  four-question done test, and an explicit list of the work that belongs in a
+  follow-up. Its load-bearing rule is that a passing gate is a stop signal
+  rather than a green light, since the gate exists to say when the job is over.
+
+### Changed
+
+- Repository description now says 16 skills, and lists `task-closure` among
+  the topics it covers.
+- Added the `best-practices`, `code-quality`, and `task-management` topics.
+
+### Fixed
+
+- The local copy of `pre-publish.mjs` in `~/.config/opencode/skills` had drifted
+  from the repository copy and was missing the marker-gate fix, so it failed a
+  release on three files that were only documenting the gate. The two copies
+  are byte-identical again.
+
 ## [1.0.1] — 2026-10-02
 
 Release hygiene. The v1.0.0 tag was published before the repository metadata
