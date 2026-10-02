@@ -1,0 +1,50 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run pre-publish gates
+        run: node skills/release-checklist/scripts/pre-publish.mjs . --skip "clean tree,branch pushed"
+
+      - name: Enforce size budgets per skill
+        run: node skills/code-discipline/scripts/check-size.mjs skills
+
+  version-matches-tag:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: package.json version must equal the tag
+        run: |
+          node -e '
+            const { readFileSync } = require("fs");
+            const tag = process.env.GITHUB_REF_NAME.replace(/^v/, "");
+            const pkg = JSON.parse(readFileSync("package.json", "utf8")).version;
+            if (tag !== pkg) {
+              console.error(`tag ${tag} does not match package.json ${pkg}`);
+              process.exit(1);
+            }
+            console.log(`tag ${tag} matches package.json ${pkg}`);
+          '
