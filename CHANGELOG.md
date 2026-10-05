@@ -4,6 +4,25 @@ All notable changes to this project are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- `provider-reconnect` — retrying a failed model request without paying for it
+  twice. Branches `429` on `error.code` so an exhausted credit balance is not
+  retried as a rate limit, gives `Retry-After` priority over the backoff
+  schedule, and requires one reused `Idempotency-Key` across all attempts of a
+  POST. Treats a stream that died mid-flight as incomplete rather than as a
+  result. Ships `scripts/classify.mjs`, which turns the retryable/permanent
+  decision into an exit code so it can be tested instead of remembered.
+
+### Changed
+
+- Repository description now says 17 skills, and lists `provider-reconnect`
+  among the topics it covers.
+- The skills badge in `README.md` counts 17; `README.ru.md` and `README.uz.md`
+  gain the matching table row.
+
 ## [1.1.0] — 2026-10-02
 
 A new skill, and the release gates it needed to ship cleanly.

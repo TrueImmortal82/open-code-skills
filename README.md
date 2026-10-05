@@ -3,7 +3,7 @@
 [![release](https://img.shields.io/github/release/TrueImmortal82/open-code-skills?display_name=tag)](https://github.com/TrueImmortal82/open-code-skills/releases/latest)
 [![license](https://img.shields.io/github/license/TrueImmortal82/open-code-skills)](LICENSE)
 [![opencode](https://img.shields.io/badge/requires-opencode-%3E%3D1.18.0-ff8800)](https://opencode.ai)
-[![skills](https://img.shields.io/badge/skills-16-blue)](skills/)
+[![skills](https://img.shields.io/badge/skills-17-blue)](skills/)
 
 [English](README.md) · [Русский](README.ru.md) · [Oʻzbekcha](README.uz.md)
 
@@ -47,6 +47,7 @@ skill discovery picks them up. Nothing is copied into global directories.
 | `api-doc-recall` | Verifying an API against the installed source instead of against remembered documentation |
 | `research-synthesis` | Turning several sources into one answer that says what is confirmed, inferred, and unknown |
 | `task-closure` | Deciding a task is finished instead of improving it forever: stop conditions, a done test, and what belongs in a follow-up |
+| `provider-reconnect` | Retrying a failed model request without paying twice: retryable vs permanent errors, backoff with jitter, `Idempotency-Key`, and dead streams |
 
 Each skill is a plain directory with a `SKILL.md` and YAML frontmatter, per the
 [Agent Skills specification](https://agentskills.io/specification). Copy any of
