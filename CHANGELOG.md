@@ -4,6 +4,18 @@ All notable changes to this project are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- `subagent-delegation` — handing work to an opencode subagent on purpose.
+  Covers choosing `explore`/`general`/`scout` over the Task tool, writing a
+  delegation that works with a fresh-context subagent (no shared conversation),
+  parallel units of work, `task_id` resume, `permission.task` gating and the
+  `steps` limit that stops a runaway subagent. Ships the invisible_dots
+  agent-per-VM isolation model as a reference for why each delegation must be
+  self-sufficient.
+
 ## [1.2.0] — 2026-10-05
 
 ### Added

@@ -45,6 +45,7 @@ global papkalarga koʻchirilmaydi.
 | `research-synthesis` | Bir necha manbani bitta javobga birlashtirib, nimaning tasdiqlangan, nimaning taxmin va nimaning nomaʼlum ekanini aniq koʻrsatish |
 | `task-closure` | Vazifa tugaganini aniqlash, cheksiz takomillashtirishga kirmasdan: toʻxtash shartlari, tayyorlik testi va keyingi vazifaga qoldiriladigan narsalar roʻyxati |
 | `provider-reconnect` | Modelga yuborilgan uzilgan soʻrovni ikki marta toʻlamasdan qayta yuborish: qayta yuboriladigan xatolar, jitter bilan backoff, `Idempotency-Key` va uzilib qolgan oqimlar |
+| `subagent-delegation` | Ishtokni opencode subagentiga ataylab topshirish: `explore`/`general`/`scout` tanlash, toza kontekst bilan delegatsiya, parallel vazifalar va `permission.task` |
 
 Har bir koʻnikma — oddiy papka: un ichida `SKILL.md` va YAML frontmatter bor,
 [Agent Skills spetsifikatsiyasi](https://agentskills.io/specification) boʻyicha.
