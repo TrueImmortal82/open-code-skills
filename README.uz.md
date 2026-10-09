@@ -46,6 +46,7 @@ global papkalarga koʻchirilmaydi.
 | `task-closure` | Vazifa tugaganini aniqlash, cheksiz takomillashtirishga kirmasdan: toʻxtash shartlari, tayyorlik testi va keyingi vazifaga qoldiriladigan narsalar roʻyxati |
 | `provider-reconnect` | Modelga yuborilgan uzilgan soʻrovni ikki marta toʻlamasdan qayta yuborish: qayta yuboriladigan xatolar, jitter bilan backoff, `Idempotency-Key` va uzilib qolgan oqimlar |
 | `subagent-delegation` | Ishtokni opencode subagentiga ataylab topshirish: `explore`/`general`/`scout` tanlash, toza kontekst bilan delegatsiya, parallel vazifalar va `permission.task` |
+| `reference-books` | Google Drive kitob javonidan savollarga javob berish: mavzuni kitobga moslash, `fetch-book.mjs` bilan PDF yuklab olish va pdf koʻnikmasi bilan javobni oʻqish |
 
 Har bir koʻnikma — oddiy papka: un ichida `SKILL.md` va YAML frontmatter bor,
 [Agent Skills spetsifikatsiyasi](https://agentskills.io/specification) boʻyicha.

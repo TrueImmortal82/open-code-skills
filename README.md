@@ -3,7 +3,7 @@
 [![release](https://img.shields.io/github/release/TrueImmortal82/open-code-skills?display_name=tag)](https://github.com/TrueImmortal82/open-code-skills/releases/latest)
 [![license](https://img.shields.io/github/license/TrueImmortal82/open-code-skills)](LICENSE)
 [![opencode](https://img.shields.io/badge/requires-opencode-%3E%3D1.18.0-ff8800)](https://opencode.ai)
-[![skills](https://img.shields.io/badge/skills-18-blue)](skills/)
+[![skills](https://img.shields.io/badge/skills-19-blue)](skills/)
 
 [English](README.md) · [Русский](README.ru.md) · [Oʻzbekcha](README.uz.md)
 
@@ -49,6 +49,7 @@ skill discovery picks them up. Nothing is copied into global directories.
 | `task-closure` | Deciding a task is finished instead of improving it forever: stop conditions, a done test, and what belongs in a follow-up |
 | `provider-reconnect` | Retrying a failed model request without paying twice: retryable vs permanent errors, backoff with jitter, `Idempotency-Key`, and dead streams |
 | `subagent-delegation` | Handing work to an opencode subagent on purpose: picking `explore`/`general`/`scout`, writing a fresh-context delegation, parallel units, and `permission.task` |
+| `reference-books` | Answering questions from a Google Drive book shelf: matching a topic to a title, live-downloading the PDF with `fetch-book.mjs`, and reading the answer out with the pdf skill |
 
 Each skill is a plain directory with a `SKILL.md` and YAML frontmatter, per the
 [Agent Skills specification](https://agentskills.io/specification). Copy any of
