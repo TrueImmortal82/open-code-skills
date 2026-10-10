@@ -11,6 +11,7 @@ orientation, not for ids.
 node scripts/fetch-book.mjs --list                      # every title
 node scripts/fetch-book.mjs --list-ids                  # title :: fileID
 node scripts/fetch-book.mjs "substring" --out DIR       # download
+node scripts/fetch-book.mjs --verify-catalog            # catalog coverage
 ```
 
 The downloader lives next to this file in `../scripts/fetch-book.mjs`.
@@ -19,8 +20,8 @@ The downloader lives next to this file in `../scripts/fetch-book.mjs`.
 
 | Exit | Meaning | Action |
 | --- | --- | --- |
-| 0 | one match, saved as `DIR/<name>.pdf` | read it with the pdf skill |
-| 1 | no book matched the query | re-run with `--list` to see real titles; do not invent a name |
+| 0 | one match, saved as `DIR/<name>.pdf`; or `--verify-catalog` clean | read it with the pdf skill |
+| 1 | no book matched the query; or a live file is absent from the catalog | re-run with `--list`; add the missing row to `catalog.md` |
 | 2 | several matches | the script printed them; narrow the query |
 
 ## What the script checks

@@ -34,10 +34,14 @@ Do not use this for:
 
 Ordered by how often they go wrong.
 
-### 1. Match the ask to a book before downloading
+### 1. Match the ask from the catalog, not from guessing
 
-Scan the shelf (`node scripts/fetch-book.mjs --list`) and pick the single most
-relevant title by topic, not by name luck. The shelf is:
+The catalog in `references/catalog.md` is the semantic index of the shelf:
+every book with its topic, language, what it covers, and a "use when". Read it
+first — do not scan the drive or guess a title from memory. Find the row
+whose topic and "use when" fit the ask, then download exactly that file.
+
+The topic map at a glance:
 
 | Topic | Look for |
 | --- | --- |
@@ -55,9 +59,9 @@ relevant title by topic, not by name luck. The shelf is:
 | IoT security | `Практический_хакинг_интернета_вещей` |
 | Testing | `Шпаргалка_начинающего_тестировщика` |
 | DevOps | `devops_unleashed_with_git` |
-| Robotics? | (not on the shelf) |
 
-If the topic is not on the shelf, say so plainly instead of inventing a match.
+If the topic is not in the catalog, say so plainly instead of inventing a
+match; the catalog also lists what the shelf conspicuously lacks.
 
 ### 2. Download with the script, one file at a time
 
@@ -88,16 +92,25 @@ when it is a third-party reference, answer with the book's wording and give
 the page. Do not let a download replace a question — if the ask stays unclear
 after the book is read, say what the book covers and re-ask.
 
-### 5. Keep the shelf fresh in the answer
+### 5. Keep the catalog current
 
-If the topic is missing, do not guess a book exists. Name the gap: "this shelf
-does not carry <topic>" and offer the closest neighbor. The folder is shared
-publicly and may gain files; re-run `--list` before concluding a book is
-absent.
+The catalog is the lookup table the agent reads first, so it must reflect the
+live shelf. Run `node scripts/fetch-book.mjs --verify-catalog`; it prints every
+live file missing from `references/catalog.md` and exits 1 if any. For each,
+add a row (topic, language, one-line covers, use when) and update the SKILL.md
+topic map. Treat `(N)`-suffixed names as duplicates of their base book, not as
+new books. Commit the update so the next session does not have to re-derive it.
+
+If the topic is missing after that, do not guess a book exists. Name the gap:
+"this shelf does not carry <topic>" and offer the closest neighbor.
 
 ## Reference
 
-- `references/shelf.md` — the full live listing commands and the exit-code
+- `references/catalog.md` — the full semantic index of the shelf: every book
+  with topic, language, what it covers, use-when, plus the list of topics the
+  shelf lacks. **Read this first** to pick a book; it is also where a newly
+  discovered file is registered.
+- `references/shelf.md` — the live listing commands and the exit-code
   contract of `fetch-book.mjs`; read when a download returns something other
   than a `%PDF-` file.
 - `scripts/fetch-book.mjs` — the downloader. It resolves the folder page's

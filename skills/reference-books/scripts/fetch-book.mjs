@@ -7,6 +7,7 @@
 //   node fetch-book.mjs --list           print every book name without IDs
 //   node fetch-book.mjs --list-ids       print name :: fileID pairs
 //   node fetch-book.mjs "sql" --out DIR  download into DIR (default: cwd)
+//   node fetch-book.mjs --verify-catalog check references/catalog.md coverage
 //
 // The folder listing is fetched from the folder page and per-file ids are
 // parsed out of data-id / data-tooltip. The public download URL
@@ -14,19 +15,27 @@
 // for this shelf it returns PDF bytes, not an HTML virus-scan page.
 //
 // Exit codes: 0 matched and downloaded, 1 nothing matched, 2 ambiguity
-// (several files matched; nothing downloaded).
+// (several files matched; nothing downloaded). --verify-catalog exits 1 when
+// a live file is absent from the catalog.
 
 const FOLDER_ID = "1j7l7CVK46aIYnuaXL5iRS6FU53TCwSTR";
 const FOLDER_URL = `https://drive.google.com/drive/folders/${FOLDER_ID}`;
 const DOWNLOAD_BASE = "https://drive.google.com/uc?export=download&id=";
+const CATALOG_REL = "../references/catalog.md";
 
 const args = process.argv.slice(2);
 const outIdx = args.indexOf("--out");
 const outDir = outIdx !== -1 ? args[outIdx + 1] : ".";
 const listOnly = args.includes("--list");
 const listIds = args.includes("--list-ids");
+const verifyCatalog = args.includes("--verify-catalog");
 const query = args.filter(
-  (a) => a !== "--out" && a !== "--list" && a !== "--list-ids" && a !== outDir,
+  (a) =>
+    a !== "--out" &&
+    a !== "--list" &&
+    a !== "--list-ids" &&
+    a !== "--verify-catalog" &&
+    a !== outDir,
 )[0];
 
 function fail(msg, code) {
@@ -74,6 +83,22 @@ if (listOnly) {
 }
 if (listIds) {
   for (const f of files) console.log(`${f.name} :: ${f.id}`);
+  process.exit(0);
+}
+if (verifyCatalog) {
+  const { readFileSync } = await import("node:fs");
+  const { fileURLToPath } = await import("node:url");
+  const { dirname, join } = await import("node:path");
+  const here = dirname(fileURLToPath(import.meta.url));
+  const catalog = readFileSync(join(here, CATALOG_REL), "utf8");
+  const missing = files.filter((f) => !catalog.includes(f.name));
+  if (missing.length) {
+    console.error(`${missing.length} live file(s) absent from the catalog:`);
+    for (const m of missing) console.error(`  ${m.name}`);
+    console.error("add a row to references/catalog.md for each, then commit.");
+    process.exit(1);
+  }
+  console.log(`ok: all ${files.length} live files are in the catalog`);
   process.exit(0);
 }
 if (!query) fail("no book name given; use --list to see the shelf", 2);

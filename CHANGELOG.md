@@ -9,12 +9,15 @@ All notable changes to this project are recorded here. The format follows
 ### Added
 
 - `reference-books` — answering a question from the public 'Aris bookshelf'
-  Google Drive library. Matches the ask to a book by topic, downloads the PDF
-  live with `scripts/fetch-book.mjs` (names and file ids are parsed from the
-  folder page at call time, `%PDF-` magic bytes verified), then reads the
-  answer with the pdf skill instead of skimming the volume. Covers Python, AI,
-  ML, NLP, time series, causal inference, SQL, databases, security and testing
-  references. Exit-code contract: `0` downloaded, `1` no match, `2` ambiguous.
+  Google Drive library. Ships a full semantic catalog
+  (`references/catalog.md`: every book with topic, language, what it covers and
+  use-when, plus the topics the shelf lacks) that the agent reads before
+  touching the drive, downloads the PDF live with `scripts/fetch-book.mjs`
+  (names and file ids parsed from the folder page at call time, `%PDF-` magic
+  bytes verified), then reads the answer with the pdf skill instead of skimming
+  the volume. `--verify-catalog` reports any live file missing from the
+  catalog so the index stays current. Exit-code contract: `0` downloaded or
+  clean, `1` no match or catalog gap, `2` ambiguous.
 
 ## [1.2.1] — 2026-10-09
 
