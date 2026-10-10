@@ -6,6 +6,8 @@ All notable changes to this project are recorded here. The format follows
 
 ## [Unreleased]
 
+## [1.3.0] — 2026-10-10
+
 ### Added
 
 - `reference-books` — answering a question from the public 'Aris bookshelf'
@@ -18,6 +20,14 @@ All notable changes to this project are recorded here. The format follows
   the volume. `--verify-catalog` reports any live file missing from the
   catalog so the index stays current. Exit-code contract: `0` downloaded or
   clean, `1` no match or catalog gap, `2` ambiguous.
+
+### Changed
+
+- `self-improvement` now writes its live lesson log to `lessons.md` in the
+  opencode config directory instead of shipping `skills/self-improvement/queue.md`
+  in the repository. A plugin-installed copy of the skill therefore accumulates
+  lessons locally without the repo copy drifting from it — two sources for one
+  skill name shadow each other nondeterministically at load time.
 
 ## [1.2.1] — 2026-10-09
 
