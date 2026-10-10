@@ -138,8 +138,8 @@ node skills/code-discipline/scripts/check-size.mjs .   # fayl va bogʻliqlik bud
   papkalari — kodga yozib qoʻymang. Muhitni aniqlang.
 - `SKILL.md` xatti-harakatni tasvirlaydi, fayl tuzilmasini emas: skript nima
   qilishini ayting, qaysi modulda qaysi tekshiruv borligini emas.
-- `self-improvement/queue.md` — tirik jurnal, oʻz qaydlaringizni bemalol
-  qoʻshing.
+- `self-improvement` darslar jurnalini opencode konfig papkangizdagi
+  `lessons.md`ga yozadi, repoga emas; oʻz qaydlaringizni bemalol qoʻshing.
 
 ## Litsenziya
 

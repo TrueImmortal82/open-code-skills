@@ -46,7 +46,8 @@ true in a month?*
 
 ## 2. Capture — write it down immediately
 
-Append to `queue.md` in this skill's directory. It is a plain markdown file;
+Append to the lessons file `lessons.md` in the global opencode config
+directory — `~/.config/opencode/lessons.md`. It is a plain markdown file;
 append it like any other file. Entry shape:
 
 ```markdown
@@ -61,7 +62,7 @@ Keep it to three lines. An elaborate lesson entry does not get promoted; a
 terse one does. Capture within the same session — context you do not write
 down is context you lose at the next restart.
 
-Read `queue.md` at the start of any session where a relevant topic comes up,
+Read the lessons file at the start of any session where a relevant topic comes up,
 and always before writing a new skill: an unpromoted lesson may already cover
 half of what you are about to write.
 
@@ -110,8 +111,7 @@ Make the lesson **checkable** when it can be. A rule that a script can verify
 gets enforced; a rule that only exists as prose gets forgotten. This is why the
 config skill ships `validate-config.mjs` rather than a paragraph about schemas.
 
-Then mark the queue entry `Status: promoted -> <file> (date)` and update the
-index below.
+Then mark the queue entry `Status: promoted -> <file> (date)`.
 
 ## 5. Verify — did the lesson stick
 
@@ -139,9 +139,9 @@ is not specific enough to be promoted yet.
 | restating the incident instead of the rule | a rule needs to be actionable without the story |
 | upgrading an old incident by speculation | check the code first; the code may already have changed |
 
-## Queue index
+## Lessons file
 
-Read `queue.md` before starting work in a familiar area — it may already
+Read `lessons.md` before starting work in a familiar area — it may already
 contain the answer, and promoting it is cheaper than rediscovering it.
 
 Promoted lessons live in the skills themselves. This skill holds the loop, not

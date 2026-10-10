@@ -135,7 +135,8 @@ node skills/code-discipline/scripts/check-size.mjs .   # file/dependency budget
   directories) out of skills. Detect the environment instead.
 - `SKILL.md` documents behaviour, not file layout — say what the script does,
   not which module holds which check.
-- `self-improvement/queue.md` is a live log; add your own entries freely.
+- `self-improvement` keeps its live lesson log in `lessons.md` in your opencode
+  config directory, not in the repo; add your own entries freely.
 
 ## Licence
 
