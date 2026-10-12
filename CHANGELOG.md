@@ -6,6 +6,8 @@ All notable changes to this project are recorded here. The format follows
 
 ## [Unreleased]
 
+## [1.4.0] — 2026-10-10
+
 ### Added
 
 - `english-request` — doing the model's own work in English while keeping the
