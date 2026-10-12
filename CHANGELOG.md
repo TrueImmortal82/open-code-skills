@@ -6,6 +6,16 @@ All notable changes to this project are recorded here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- `english-request` — doing the model's own work in English while keeping the
+  reply in the user's language, to cut token cost on long transcripts. The
+  saving is in the model's *generated* tokens (reasoning, plans, notes, tool
+  arguments), which dominate a long session and are 2–4× cheaper in English
+  than in Cyrillic; the user's own message is left untouched and the reply
+  stays in their language. Never translates code, paths, identifiers, commands,
+  or quoted text.
+
 ## [1.3.0] — 2026-10-10
 
 ### Added

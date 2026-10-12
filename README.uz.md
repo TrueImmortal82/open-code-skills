@@ -47,6 +47,7 @@ global papkalarga koʻchirilmaydi.
 | `provider-reconnect` | Modelga yuborilgan uzilgan soʻrovni ikki marta toʻlamasdan qayta yuborish: qayta yuboriladigan xatolar, jitter bilan backoff, `Idempotency-Key` va uzilib qolgan oqimlar |
 | `subagent-delegation` | Ishtokni opencode subagentiga ataylab topshirish: `explore`/`general`/`scout` tanlash, toza kontekst bilan delegatsiya, parallel vazifalar va `permission.task` |
 | `reference-books` | Google Drive kitob javonidan savollarga javob berish: mavzuni kitobga moslash, `fetch-book.mjs` bilan PDF yuklab olish va pdf koʻnikmasi bilan javobni oʻqish |
+| `english-request` | Ichki ishni ingliz tilida bajarib, javobni foydalanuvchi tilida yozish — uzoq suhbat kamroq token sarflaydi |
 
 Har bir koʻnikma — oddiy papka: un ichida `SKILL.md` va YAML frontmatter bor,
 [Agent Skills spetsifikatsiyasi](https://agentskills.io/specification) boʻyicha.
